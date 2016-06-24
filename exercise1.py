@@ -30,23 +30,20 @@ class BSTNode(object):
     def __repr__(self):
         return '(%s, %r, %r)' % (self.val, self.left, self.right)
 
-def find_val_or_next_smallest(bst, x):
+def find_val_or_next_smallest(bst, x, candidate=None):
     """Get the greatest value <= x in a binary search tree.
 
     Returns None if no such value can be found.
 
     """
     if bst is None:
-        return None
+        return candidate
     elif bst.val == x:
         return x
     elif bst.val > x:
-        return find_val_or_next_smallest(bst.left, x)
+        return find_val_or_next_smallest(bst.left, x, candidate)
     else:
-        right_best = find_val_or_next_smallest(bst.right, x)
-        if right_best is None:
-            return bst.val
-        return right_best
+        return find_val_or_next_smallest(bst.right, x, bst.val)
 
 
 # tests
