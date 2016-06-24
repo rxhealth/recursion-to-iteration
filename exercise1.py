@@ -46,7 +46,7 @@ def find_val_or_next_smallest(bst, x, candidate=None):
         else:  # bst.val < x
             bst, candidate = bst.right, bst.val
 
-        return find_val_or_next_smallest(bst, x, candidate)
+        continue
         break
 
 # tests
