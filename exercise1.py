@@ -59,7 +59,7 @@ tree4 = BSTNode(5, BSTNode(3, BSTNode(1)), BSTNode(9))
 trees = [tree0, tree1, tree2, tree3, tree4]
 tree_vals = [[], [5], [3, 5], [3, 5, 9], [1, 3, 5, 9]]
 
-def test():
+if __name__ == '__main__':
     for vals, bst in zip(tree_vals, trees):
         for x in xrange(10):
             y = find_val_or_next_smallest(bst, x)
