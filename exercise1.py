@@ -36,16 +36,18 @@ def find_val_or_next_smallest(bst, x, candidate=None):
     Returns None if no such value can be found.
 
     """
-    if bst is None:
-        return candidate
-    elif bst.val == x:
-        return x
-    elif bst.val > x:
-        bst, candidate = bst.left, candidate
-    else:  # bst.val < x
-        bst, candidate = bst.right, bst.val
+    while True:
+        if bst is None:
+            return candidate
+        elif bst.val == x:
+            return x
+        elif bst.val > x:
+            bst, candidate = bst.left, candidate
+        else:  # bst.val < x
+            bst, candidate = bst.right, bst.val
 
-    return find_val_or_next_smallest(bst, x, candidate)
+        return find_val_or_next_smallest(bst, x, candidate)
+        break
 
 # tests
 
