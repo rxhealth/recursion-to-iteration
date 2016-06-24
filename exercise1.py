@@ -36,18 +36,23 @@ def find_val_or_next_smallest(bst, x, candidate=None):
     Returns None if no such value can be found.
 
     """
-    while True:
+    isDone = False
+
+    while not isDone:
         if bst is None:
-            return candidate
+            # We've reached the bottom of the tree,
+            # our current Candidate is out best option
+            isDone = True
         elif bst.val == x:
-            return x
+            # We've found our value, no need to
+            # continue searching.
+            candidate, isDone = x, True
         elif bst.val > x:
             bst, candidate = bst.left, candidate
         else:  # bst.val < x
             bst, candidate = bst.right, bst.val
 
-        continue
-        break
+    return candidate
 
 # tests
 
